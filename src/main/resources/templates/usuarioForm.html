@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot</title>
+</head>
+<body>
+<h1>Formulario de usuario</h1>
+<form action="#" th:action="@{/process}" th:object="${usuario}" method="post">
+    Nome: <input type="text" th:field="*{nome}">
+    <span th:if="${#fields.hasErrors('nome')}"
+          th:errors="*{nome}"></span><br>
+
+    Senha:<input type="text" th:field="*{senha}">
+    <span th:if="${#fields.hasErrors('senha')}"
+      th:errors="*{senha}"></span><br>
+
+    Descricao:<textarea rows="3" th:field="*{descricao}"></textarea>
+    <span th:if="${#fields.hasErrors('descricao')}"
+      th:errors="*{descricao}"></span><br>
+<input type="submit" value="Enviar">
+</form>
+</body>
+</html>
